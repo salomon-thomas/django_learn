@@ -49,7 +49,7 @@ def register_view(request):
 				context.update({'message':"Email already used!"})
 				context.update({'status':"flase"})
 			data.pop("repassword", None)
-			#return HttpResponse(context.items())
+			return HttpResponse(context.items())
 			if context.status == "true":
 				status=Users.objects.create(data)
 			return HttpResponse(status)
