@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+	<h1>In About Page</h1>
+	<p>lorem ipsum</p>
+	<p>CopyRight {{ year }}</p>
+	<p>The list is as follows: <br>
+	<ul>
+	Data for iteration lengths:{{ my_list | length }}
+	{%for data in my_list %}
+		{% if data > 1000 %}
+			<li>On item :{{ forloop.counter }} with data :{{ data | add:10 }}</li>
+		{% elif data == "jango" %}
+			<li>On item :{{ forloop.counter }} with data :{{ data }}</li>
+		{% else %}
+			<li>no loop counter data :{{ data | add:10 }}</li>
+		{% endif %}
+	{% endfor %}
+	</ul>
+
+	</p>
+	<p>
+		{% now "d-m-Y H:i" %}
+	</p>
+{% endblock%}

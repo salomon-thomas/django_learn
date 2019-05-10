@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Product Details</h1>
+	<h3>{{ object.title }}</h3>
+	<p>
+		{% if object.description%}
+			{{ object.description }}
+		{% else %}
+			{{ "Sorry No description Available"}}
+		{% endif %}
+	</p><br>
+	<p>
+		Item Price:{{object.price}}
+	</p>
+	<a href="../../list">Back</a>
+{% endblock %}

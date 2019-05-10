@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">
+	{% csrf_token %}
+	{% if object.id %}
+		<input type="hidden" name="id" value="{{object.id}}">
+	{% endif %}
+	{{ form.as_p }}
+	<input type="submit" value="Save" />
+	<a href="../list">Back</a>	
+
+</form>
+{% endblock %}
+
+<!-- 
+
+
+<form action="." method="GET">
+	<input type="text" name="search">
+	<input type="submit" value="Search" />
+</form> -->

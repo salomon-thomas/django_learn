@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="grid" class="outer">
+	<div class="row">
+		<h1>Products List</h1>
+		<!-- <table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Show</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody> -->	
+			{% for instance in object_list %}
+				<div class="col">
+					<div class="outerfit">
+						<div class="overtop">
+							<div class="fill_a">
+								<div class="img"><img src="" /></div>
+								<div class="title">{{ instance.title }}</div>
+								<div class="shortdesc">{{instance.price}} ₹</div>
+							</div>
+							
+							<div class="title next">{{ instance.title }}</div>
+							<div class="shortdesc next">{% if instance.description%}
+										{{ instance.description }}
+								{% else %}
+										{{ "Sorry No description Available"}}
+								{% endif %}</div>
+							
+						</div>
+					</div>
+				</div>
+					<!-- <td><a href="../product-view/{{instance.id}}/">Show</a></td>
+					<td><a href="../product/{{instance.id}}/delete/">Delete</a></td> -->
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+</div>
+{% endblock %}
+
+		
+	

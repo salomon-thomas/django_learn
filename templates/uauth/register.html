@@ -1,0 +1,19 @@
+{% extends 'uauth\base.html' %}
+
+{% block content %}
+    <form action="." method="POST" class="email-signup">
+      {% csrf_token %}
+      <div class="u-form-group">
+        <input name="email_id" type="email" placeholder="Email"/>
+      </div>
+      <div class="u-form-group">
+        <input name="password" type="password" placeholder="Password"/>
+      </div>
+      <div class="u-form-group">
+        <input name="repassword" type="password" placeholder="Confirm Password"/>
+      </div>
+      <div class="u-form-group">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+{% endblock%}
