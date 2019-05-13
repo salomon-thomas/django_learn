@@ -6,6 +6,6 @@
 	{% csrf_token %}
 	<h1>Do you want to delete {{ object.title }}!</h1>
 	<input type="submit" value="Yes" />
-	<a href="../../list">Cancel</a>	
+	<a href="{% url 'product-list' %}">Cancel</a>	
 </form>
 {% endblock %}

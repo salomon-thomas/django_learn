@@ -6,11 +6,14 @@ import os
 # Create your views here.
 def home_view(request,*args , **kwargs):
 	print(request.user)
+
 	my_context={
 		"title":"This is Home Page",
 		"year":2019,
 		"home_page":"active"
 	}
+	if request.session.has_key('username'):
+		my_context.update({'logged_in':'True','navbar':request.session['name']})
 	return render(request,'home.html',my_context)
 
 def contact_view(request,*args , **kwargs):
@@ -19,6 +22,8 @@ def contact_view(request,*args , **kwargs):
 		"year":2019,
 		"contact_page":"active"
 	}
+	if request.session.has_key('username'):
+		my_context.update({'logged_in':'True','navbar':request.session['name']})
 	return render(request,'contacts.html',my_context)
 
 def about_view(request,*args , **kwargs):
@@ -28,6 +33,8 @@ def about_view(request,*args , **kwargs):
 		"my_list":[100,125,2587,457879,'jango'],
 		"about_page":"active"
 	}
+	if request.session.has_key('username'):
+		my_context.update({'logged_in':'True','navbar':request.session['name']})
 	return render(request,'about.html',my_context)
 
 def blog_view(request,*args , **kwargs):
@@ -36,4 +43,6 @@ def blog_view(request,*args , **kwargs):
 		"year":2019,
 		"blog_page":"active"
 	}
+	if request.session.has_key('username'):
+		my_context.update({'logged_in':'True','navbar':request.session['name']})
 	return render(request,'blog.html',my_context)

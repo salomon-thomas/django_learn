@@ -4,6 +4,9 @@
     <form action="." method="POST" class="email-signup">
       {% csrf_token %}
       <div class="u-form-group">
+        <input name="name" type="text" placeholder="Name"/>
+      </div>
+      <div class="u-form-group">
         <input name="email_id" type="email" placeholder="Email"/>
       </div>
       <div class="u-form-group">

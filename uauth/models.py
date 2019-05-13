@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-class Users(models.Model):
+class Customers(models.Model):
  	name		=	models.CharField(max_length=120)
  	email_id	=	models.CharField(max_length=120)
  	password	=	models.CharField(max_length=120)
