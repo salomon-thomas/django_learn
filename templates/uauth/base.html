@@ -1,12 +1,15 @@
 <html>
 <head>
 	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/bootstarp/bootstrap.css' %}">
 	<link rel="stylesheet" href="{% static 'css/auth/style.css' %}">
 
 	<script src="{% static 'js/jquery/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstarp/bootstrap.js' %}"></script>
 	<script src="{% static 'js/auth/login.js' %}"></script>
 </head>
 <body>
+	{% include 'messages.html' %}
 	  <div class="login-box">
     <div class="lb-header">
       <a href="{% url 'ulogin' %}" class="{{login_page}}" id="login-box-link">Login</a>

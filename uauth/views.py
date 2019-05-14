@@ -18,10 +18,8 @@ def login_view(request):
 			try:
 				Usersqueryset=Customers.objects.get(email_id=email_id,password=password)
 				if Usersqueryset.email_id:
-					#print(Usersqueryset.email_id)
 					request.session['username']=Usersqueryset.email_id
 					request.session['name']=Usersqueryset.name
-					#return HttpResponse(Usersqueryset.name)
 					messages.success(request, 'Welcome to User Space')
 					return redirect('product-list')
 			except Customers.DoesNotExist:
@@ -56,22 +54,24 @@ def register_view(request):
 			users.active=True
 			users.user_type=2
 
+			Usersqueryset=Customers.objects.filter(email_id=email)
 			if password != repassword:
 				context.update({'message':"Password missmatch!"})
-				context.update({'status':"flase"})
-			Usersqueryset=Customers.objects.filter(email_id__contains=email)
-			if Usersqueryset:
+				context.update({'status':False})
+			elif Usersqueryset:
 				context.update({'message':"Email already used!"})
-				context.update({'status':"flase"})
-			if context.get("status","") == "True":
-				status=users.save()
-				context.update({'query_status':status})
-			else:
-				context.update({'query_status':False})
+				context.update({'status':False})
 
-			if context.get('query_status','') != False:
+			# return HttpResponse(context.get('status',''))
+			if context.get('status','') == True:
+				return HttpResponse(context.get('status',''))
 				#return HttpResponse(context.get('query_status',''))
+				status=users.save()
+				messages.success(request, 'Account Created!')
 				return redirect('ulogin')
+			else:
+				messages.warning(request,context.get('message',''))
+				return redirect('uregister')
 	else:
 		form = UserRegistrationForm()
 		context={
