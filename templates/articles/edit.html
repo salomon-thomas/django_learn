@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
 	{% if object.id %}
 		<input type="hidden" name="id" value="{{object.id}}">

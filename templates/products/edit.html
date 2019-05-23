@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<form method="POST">
+<form  method="post" action="." enctype="multipart/form-data">
 	{% csrf_token %}
 	{% if object.id %}
 		<input type="hidden" name="id" value="{{object.id}}">
 	{% endif %}
 	{{ form.as_p }}
-	<input type="submit" value="Save" />
-	<a href="{% url 'product-list' %}">Back</a>	
+	<input type="submit"  class="btn btn-success" value="Save" />
+	<a  class="btn btn-warning" href="{% url 'product-list' %}">Back</a>	
 
 </form>
 {% endblock %}

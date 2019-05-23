@@ -14,9 +14,18 @@
 			<li class="nav-item {{ about_page }}">
 				<a class="nav-link" href="{% url 'about' %}">About</a>
 			</li>
-			<li class="nav-item {{ blog_page }}">
+			<li class="nav-item dropdown {{ blog_page }}">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Blog
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="{% url 'blog' %}">Blog</a>
+		          <a class="dropdown-item" href="{% url 'article-list' %}">Articles</a>
+		        </div>
+		     </li>
+<!-- 			<li class="nav-item {{ blog_page }}">
 				<a class="nav-link" href="{% url 'blog' %}">Blog</a>
-			</li>
+			</li> -->
 			<li class="nav-item {{ product_page }}">
 				<a class="nav-link" href="{% url 'product-list' %}">Products</a>
 			</li>  

@@ -11,10 +11,10 @@ class Article(models.Model):
  	active		=	models.BooleanField(default=True)
 
  	def get_absolute_url_view_article(self):
- 		return reverse("product-view",kwargs={"id":self.id})
+ 		return reverse("article-view",kwargs={"id":self.id})
  	def get_absolute_url_delete_article(self):
- 		return reverse("product-delete",kwargs={"id":self.id})
+ 		return reverse("article-delete",kwargs={"id":self.id})
  	def get_absolute_url_edit_article(self):
- 		return reverse("product-edit",kwargs={"id":self.id})
+ 		return reverse("article-edit",kwargs={"id":self.id})
  	def get_absolute_url_article(self):
- 		return reverse("product-list",kwargs={})
+ 		return reverse("article-list",kwargs={})

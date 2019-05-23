@@ -3,7 +3,7 @@
 {% block content %}
 	<h1>Product Details</h1>
 	<h3>{{ object.title }}</h3>
-	<p>
+	<p><strong>Description: </strong>
 		{% if object.description%}
 			{{ object.description }}
 		{% else %}
@@ -11,7 +11,15 @@
 		{% endif %}
 	</p><br>
 	<p>
-		Item Price:{{object.price}}
+		<strong>Item Price: </strong>{{object.price}}
 	</p>
-	<a href="{% url 'product-list'  %}">Back</a>
+	<p>
+		<strong>Item Image: </strong>
+		{% if object.product_image%}
+			<img src="{{ object.product_image.url }}" alt="">
+		{% else %}
+			<p>No Image</p>
+		{% endif %}
+	</p>
+	<a href="{% url 'product-list'  %}" class="btn btn-warning">Back</a>
 {% endblock %}

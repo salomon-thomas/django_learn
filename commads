@@ -1,0 +1,16 @@
+reate Projectv
+>django-admin startproject <projectname>
+
+create Module
+>python manage.py startapp <module name>
+
+Runserever test
+>python manage.py runserver
+
+Migrate 
+>python manage.py makemigrations
+
+>python manage.py migrate
+
+install Pillow to store images 
+>pip install Pillow
